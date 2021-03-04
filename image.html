@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+        <title>이미지검색</title>
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+        <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f6642672b17ab5702ad7ec92cbc0ed4f"></script>
+        <style>
+            #list img{width: 50px;height: 70px;}
+            #list{margin-top: 10px; margin-bottom: 10px;}
+            #list{padding-left: 10px;}
+           
+        </style>
+    </head>
+    <body>
+        <!--이미지목록페이지-->
+        <div data-role="page" id="main">
+            <div data-role="header" data-theme="a"><a href="index.html" target="_self" data-icon="home" data-iconpos="notext">Home</a><h2>이미지검색</h2></div>
+            <div data-role="content" style="background: rgb(226, 226, 255);">
+                <input type="text" id="txtQuery" value="설현"/>
+                <div  id="list" style="overflow: hidden; width: 800px;"></div>
+                <script id="temp" type="text/x-handlebars-template">
+                {{#each documents}}
+                <div style="float:left; width:300px;background: rgb(255, 232, 196);border-radius: 150px;">
+                <a href="{{image_url}}"><img src="{{thumbnail_url}}" style="width: 150;height: 200;margin: 20px auto;margin-left: 70px;"></a>
+                </div>
+                {{/each}}
+                </script>
+                <input type="button" value="More" id="btnMore"/>
+            </div>
+            <div data-role="footer" data-theme="a"><h2>인천일보 아카데미 김한솔</h2></div>
+        </div>
+    </body>
+    <script>
+        var url="https://dapi.kakao.com/v2/search/image";
+    </script>
+    <script src="script.js"></script>
+</html>
